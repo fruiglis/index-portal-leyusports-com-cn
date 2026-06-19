@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://fruiglis.github.io/index-portal-leyusports-com-cn/sitemap.xml

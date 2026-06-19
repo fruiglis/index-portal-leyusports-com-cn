@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>再次遇见 · 乐鱼体育</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+        }
+
+        body {
+            background: #f5f7fa;
+            color: #1e293b;
+            line-height: 1.6;
+        }
+
+        /* 深色头图导航区 */
+        .hero {
+            background: linear-gradient(135deg, #0b1622 0%, #1a2a3a 100%);
+            color: #e2e8f0;
+            padding: 2rem 1.5rem 3.5rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .top-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1120px;
+            margin: 0 auto 2.8rem auto;
+            width: 100%;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: #facc15;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .nav-links a {
+            color: #cbd5e1;
+            text-decoration: none;
+            transition: color 0.2s, border-bottom 0.2s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        .nav-links a:hover {
+            color: #facc15;
+            border-bottom-color: #facc15;
+        }
+
+        .hero-content {
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 0.75rem;
+            color: #ffffff;
+        }
+
+        .hero .sub {
+            font-size: 1.1rem;
+            color: #b0c4d9;
+            margin-bottom: 1.6rem;
+            max-width: 650px;
+        }
+
+        .hero .highlight-link {
+            display: inline-block;
+            background: #facc15;
+            color: #0b1622;
+            padding: 0.6rem 1.8rem;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: background 0.25s, transform 0.15s;
+        }
+
+        .hero .highlight-link:hover {
+            background: #fde047;
+            transform: scale(1.03);
+        }
+
+        /* 浅色正文区 */
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3rem;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 600;
+            position: relative;
+            margin-bottom: 1.8rem;
+            color: #0b1622;
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 4px;
+            background: #facc15;
+            margin-top: 8px;
+            border-radius: 4px;
+        }
+
+        .intro-text {
+            font-size: 1.05rem;
+            margin-bottom: 2.8rem;
+            color: #334155;
+            background: #ffffff;
+            padding: 1.6rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+        }
+
+        .intro-text p {
+            margin-bottom: 0.8rem;
+        }
+
+        .intro-text strong {
+            color: #1e293b;
+        }
+
+        .three-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: 0 0 3.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 1.5rem;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.04);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid #edf2f7;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.06);
+        }
+
+        .card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.8rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .card p {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .card .emoji-badge {
+            font-size: 1.3rem;
+            margin-right: 6px;
+        }
+
+        .faq-summary {
+            background: #ffffff;
+            border-radius: 20px;
+            padding: 1.6rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+            border: 1px solid #e9edf2;
+        }
+
+        .faq-item {
+            padding: 1rem 0;
+            border-bottom: 1px solid #eef2f6;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            color: #0b1622;
+            margin-bottom: 0.25rem;
+        }
+
+        .faq-a {
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        .faq-a a {
+            color: #2563eb;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+        }
+
+        .faq-a a:hover {
+            color: #1d4ed8;
+        }
+
+        .bookmark-note {
+            margin-top: 2rem;
+            background: #f0f4fe;
+            border-left: 5px solid #2563eb;
+            padding: 1rem 1.5rem;
+            border-radius: 12px;
+            color: #1e293b;
+            font-size: 0.98rem;
+        }
+
+        .bookmark-note strong {
+            color: #1e3a8a;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0 1.5rem;
+            font-size: 0.85rem;
+            color: #64748b;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 2.2rem;
+        }
+
+        footer a {
+            color: #2563eb;
+        }
+
+        @media (max-width: 640px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            .top-nav {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+            .nav-links {
+                gap: 1.2rem;
+                flex-wrap: wrap;
+            }
+            .intro-text {
+                padding: 1.2rem 1.2rem;
+            }
+            .faq-summary {
+                padding: 1.2rem;
+            }
+            .three-cards {
+                gap: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 深色头图 + 导航 -->
+    <header class="hero">
+        <div class="top-nav">
+            <span class="logo">✦ 乐鱼体育</span>
+            <nav class="nav-links">
+                <a href="#intro">再次访问</a>
+                <a href="#scenes">场景</a>
+                <a href="#faq">常见说明</a>
+            </nav>
+        </div>
+        <div class="hero-content">
+            <h1>再次相遇 · 持续关注</h1>
+            <p class="sub">
+                为收藏与回访而设的轻导航入口。无论从何处回来，<br>
+                都能快速定位核心服务。
+            </p>
+            <a href="https://index-portal-leyusports.com.cn" class="highlight-link">乐鱼体育</a>
+        </div>
+    </header>
+
+    <!-- 浅色正文 -->
+    <div class="container">
+
+        <!-- 介绍段：再次访问 / 收藏 -->
+        <section id="intro">
+            <h2 class="section-title">从收藏到回访</h2>
+            <div class="intro-text">
+                <p>
+                    浏览器书签里存放的不仅是一个链接，更是你持续关注的信号。对于习惯将常用平台固定为标签页的用户，
+                    <strong>乐鱼体育</strong>提供稳定的重新接入点。
+                    本次页面围绕<strong>「再次访问」</strong>逻辑设计——当你隔了一段时间回来，不需要重新熟悉路径。
+                </p>
+                <p>
+                    收藏一次，即可随时定位。页面不追踪、不诱导，只保留最基本的导航事实：
+                    <a href="https://index-portal-leyusports.com.cn" style="color:#2563eb; text-decoration: underline;">乐鱼体育</a>
+                    是你想要抵达的地址。支持桌面与移动浏览器直接添加至主屏幕。
+                </p>
+            </div>
+        </section>
+
+        <!-- 三个场景模块 -->
+        <section id="scenes">
+            <h2 class="section-title">使用场景</h2>
+            <div class="three-cards">
+                <div class="card">
+                    <h3><span class="emoji-badge">🔖</span> 书签常驻</h3>
+                    <p>
+                        将链接存入浏览器收藏夹或阅读列表，下次从历史或书签栏一键唤醒。无需二次搜索，减少跳出。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3><span class="emoji-badge">📱</span> 移动端速达</h3>
+                    <p>
+                        通过 iOS“添加到主屏幕”或 Android“快捷方式”，把入口像原生应用一样放在桌面，随时点开。
+                    </p>
+                </div>
+                <div class="card">
+                    <h3><span class="emoji-badge">🔄</span> 定期回访</h3>
+                    <p>
+                        设定每周或每月的固定查看习惯，利用浏览器“固定标签页”功能，保持后台常驻，信息不遗漏。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 常见说明 / FAQ 摘要 -->
+        <section id="faq">
+            <h2 class="section-title">常见说明</h2>
+            <div class="faq-summary">
+                <div class="faq-item">
+                    <div class="faq-q">Q：页面与主站的关系？</div>
+                    <div class="faq-a">此页是独立的轻量导航介绍页，指向主站 <a href="https://index-portal-leyusports.com.cn">乐鱼体育</a>，不包含主站后台功能。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Q：收藏后链接会失效吗？</div>
+                    <div class="faq-a">该入口为固定地址，建议定期确认网络可达。如遇调整，本站会保留重定向说明。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Q：是否需要注册或登录？</div>
+                    <div class="faq-a">本页仅为信息索引，不涉及任何账户流程。实际使用主站时请遵循其服务条款。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">Q：如何快速分享给他人？</div>
+                    <div class="faq-a">直接复制浏览器地址栏链接即可。推荐使用系统原生分享菜单。</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 额外收藏提示 -->
+        <div class="bookmark-note">
+            <strong>💡 持续关注的小技巧：</strong>
+            将当前页加入书签（<kbd>Ctrl+D</kbd> / <kbd>Cmd+D</kbd>），或右键选择“为此标签分组”，方便日后从书签栏直接访问
+            <a href="https://index-portal-leyusports.com.cn">乐鱼体育</a>。保持标签页整洁，信息触手可及。
+        </div>
+
+        <footer>
+            <p>轻导航介绍页 · 内容仅作索引参考</p>
+            <p><a href="https://index-portal-leyusports.com.cn">乐鱼体育</a> — 主站入口</p>
+        </footer>
+    </div>
+
+</body>
+</html>
