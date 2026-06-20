@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>闲时整理 · 吉祥坊笔记</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', sans-serif;
+      background-color: #f5f3ef;
+      color: #2c2b28;
+      line-height: 1.7;
+      letter-spacing: 0.01em;
+    }
+
+    .page-wrap {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 24px 56px;
+    }
+
+    /* 深色头图 */
+    .hero {
+      background: linear-gradient(145deg, #1e1b18 0%, #2a2622 100%);
+      color: #eae5dd;
+      padding: 52px 28px 40px;
+      border-radius: 0 0 36px 36px;
+      margin: 0 -24px 48px;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.10);
+    }
+
+    .hero h1 {
+      font-size: 2.6rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+      line-height: 1.2;
+      color: #f0ebe2;
+    }
+
+    .hero .sub {
+      font-size: 1.1rem;
+      opacity: 0.78;
+      border-left: 3px solid #c9a77b;
+      padding-left: 18px;
+      margin-top: 6px;
+    }
+
+    /* 正文卡片区 */
+    .content-card {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 40px 36px;
+      margin-bottom: 36px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.03), 0 1px 4px rgba(0,0,0,0.03);
+      transition: box-shadow 0.2s ease;
+    }
+
+    .content-card:hover {
+      box-shadow: 0 8px 28px rgba(0,0,0,0.05);
+    }
+
+    .content-card h2 {
+      font-size: 1.7rem;
+      font-weight: 450;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .content-card h2::before {
+      content: "▍";
+      color: #b38b65;
+      font-weight: 300;
+      margin-right: 4px;
+    }
+
+    .content-card p {
+      margin-bottom: 1.2em;
+    }
+
+    .content-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* 引用提示块 */
+    .insight-block {
+      background: #f1ede7;
+      border-radius: 20px;
+      padding: 22px 28px;
+      margin: 28px 0 10px;
+      border-left: 6px solid #b38b65;
+      font-style: normal;
+    }
+
+    .insight-block strong {
+      color: #7a5f42;
+      font-weight: 500;
+    }
+
+    .insight-block .label {
+      display: inline-block;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      color: #8b7356;
+      margin-bottom: 6px;
+    }
+
+    /* 链接强调色 */
+    a {
+      color: #8c6d4b;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s, color 0.2s;
+      font-weight: 450;
+    }
+
+    a:hover {
+      color: #5f462e;
+      border-bottom-color: #b38b65;
+    }
+
+    /* 引用块内链接也保持统一 */
+    .insight-block a {
+      color: #6f553a;
+      border-bottom: 1px solid #d6c5b2;
+    }
+
+    .insight-block a:hover {
+      color: #3f3022;
+      border-bottom-color: #a38463;
+    }
+
+    /* 点缀分隔线 */
+    .divider-light {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #d9cfc0, transparent);
+      margin: 28px 0 32px;
+      opacity: 0.3;
+    }
+
+    /* 小列表 */
+    .note-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 1.2em 0 0.4em;
+    }
+
+    .note-list li {
+      padding: 6px 0 6px 28px;
+      position: relative;
+      color: #3b3a36;
+    }
+
+    .note-list li::before {
+      content: "—";
+      position: absolute;
+      left: 4px;
+      color: #b38b65;
+    }
+
+    /* 响应式 */
+    @media (max-width: 640px) {
+      .page-wrap {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+      .hero {
+        padding: 36px 20px 32px;
+        margin-left: -16px;
+        margin-right: -16px;
+        border-radius: 0 0 24px 24px;
+      }
+      .hero h1 {
+        font-size: 2rem;
+      }
+      .content-card {
+        padding: 28px 20px;
+        border-radius: 20px;
+      }
+      .content-card h2 {
+        font-size: 1.4rem;
+      }
+      .insight-block {
+        padding: 18px 18px;
+      }
+    }
+
+    @media (max-width: 440px) {
+      .hero h1 {
+        font-size: 1.6rem;
+      }
+      .hero .sub {
+        font-size: 0.95rem;
+      }
+      .content-card {
+        padding: 22px 16px;
+      }
+    }
+
+    /* 底部细脚 */
+    .colophon {
+      text-align: center;
+      font-size: 0.85rem;
+      color: #a39788;
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid #e1d9cf;
+    }
+  </style>
+</head>
+<body>
+  <div class="page-wrap">
+    <!-- 深色头图 -->
+    <header class="hero">
+      <h1>日常对照 · 吉祥坊</h1>
+      <div class="sub">
+        从查询、整理到延伸阅读——一个随手记录的博客式笔记页
+      </div>
+    </header>
+
+    <!-- 正文开始 -->
+    <main>
+      <article class="content-card">
+        <h2>为什么需要一份对照笔记</h2>
+        <p>
+          平时浏览信息时，总有些站点或品牌反复出现。与其每次都重新搜索、核对，不如在某个安静的下午，把零散的信息整理成一份属于自己的参照卡片。关于 <a href="https://sites-wellbet.com">吉祥坊</a> 的几次查询，就让我萌生了这样的想法——把常见的介绍、特点、适用场景，乃至一些边角细节写下来，方便日后随手翻阅，也顺便分享给可能需要的朋友。
+        </p>
+        <p>
+          这篇笔记没有营销目的，更像是一本公开的便签本。内容来自公开渠道与个人使用体验的交叉验证，语气尽量平实，不夸大也不贬低。如果你恰好也在查找相关的内容，或许能从中找到一些有用的线索。
+        </p>
+      </article>
+
+      <article class="content-card">
+        <h2>从查询到对照：几个常见维度</h2>
+        <p>
+          最初只是想知道“这个平台主要面向哪些场景”，后来陆续关注了界面设计、功能模块、社区讨论以及一些横向对比。渐渐地，我习惯把每次浏览的碎片整理成下面几类，每次更新都像在给笔记本加页签。
+        </p>
+        <ul class="note-list">
+          <li><strong>界面与体验</strong> —— 暗色与浅色模式的切换流畅度、菜单层级是否直观。</li>
+          <li><strong>内容与更新</strong> —— 资讯板块的更新频率、分类方式是否贴近日常使用习惯。</li>
+          <li><strong>社区与反馈</strong> —— 用户讨论中常被提及的功能点、以及一些细节上的改进建议。</li>
+          <li><strong>延伸阅读</strong> —— 偶然发现的关联文章、对比测评，甚至一些行业背景。</li>
+        </ul>
+        <p>
+          这些维度未必全面，但对于“够用”来说已经足够。每当我需要回想某个细节，翻一翻自己的对照笔记，比重新爬一遍搜索结果要快得多。
+        </p>
+      </article>
+
+      <!-- 引用提示块 -->
+      <div class="content-card" style="padding-bottom: 32px;">
+        <div class="insight-block">
+          <span class="label">📌 一次查证记录</span>
+          <p style="margin-bottom: 0.4em;">
+            <strong>当时为了确认入口信息</strong>，反复看了几个不同的介绍页，发现同一个链接在不同语境下的描述方式差异很大。后来直接打开 <a href="https://sites-wellbet.com">吉祥坊</a> 自己核对了一遍，把界面上的关键入口和功能描述记了下来，才彻底放心。
+          </p>
+          <p style="margin-top: 8px; font-size: 0.95rem; opacity: 0.8;">
+            这个习惯后来一直保留：任何第三方转述都不如自己亲手点开看一次。
+          </p>
+        </div>
+      </div>
+
+      <article class="content-card">
+        <h2>延伸阅读：不限于一个页面</h2>
+        <p>
+          做对照笔记的过程中，经常发现一些意想不到的关联。比如某篇文章里提到了界面设计的细节，另一篇论坛帖里则分享了使用小技巧。把这些散落的点串起来，往往会得到比单一页面更立体的印象。
+        </p>
+        <p>
+          需要提醒的是，网络信息变化很快。如果你看到这篇笔记时已经过了几个月，最好还是直接进入 <a href="https://sites-wellbet.com">吉祥坊</a> 确认一下最新状态。我的笔记只记录某个时间切片下的观察，不能替代实时浏览。
+        </p>
+        <p>
+          另外，不同用户的使用习惯差异很大。有人偏好极简入口，有人喜欢丰富的信息密度——这些主观感受很难用一篇文章概括。所以与其全盘接受别人的评价，不如把它当作一个起点，再根据自己的节奏去探索。
+        </p>
+        <div class="divider-light"></div>
+        <p style="font-size: 0.95rem; color: #665b4e;">
+          最后补充一点：所有对照内容都基于公开可查的信息与个人体验，不构成任何建议。保持开放心态，兼听则明。
+        </p>
+      </article>
+
+      <!-- 简短的FAQ摘要 以带编号的段落呈现 -->
+      <article class="content-card">
+        <h2>几次被问到的点（FAQ摘要）</h2>
+        <p>
+          <strong>Q1</strong>  —— 页面是否支持移动端正常浏览？<br>
+          <span style="color: #4d443b;">就个人测试来看，响应式适配做得很完整，手机和电脑上的布局都经过优化，没有出现按钮错位或文字溢出。当然，不同设备差异细微，最好用自己的设备体验一次。</span>
+        </p>
+        <p style="margin-top: 18px;">
+          <strong>Q2</strong>  —— 内容更新频率怎么样？<br>
+          <span style="color: #4d443b;">观察了大约三周，资讯和功能版块都有较规律的更新，没有长时间停滞的情况。不过具体时效性最好以页面实际显示为准。</span>
+        </p>
+        <p style="margin-top: 18px;">
+          <strong>Q3</strong>  —— 有没有什么容易被忽略的细节？<br>
+          <span style="color: #4d443b;">每个版块的说明文本和帮助入口往往藏在角落，初次使用时可以花几分钟把所有可见的提示点开看一看。另外，配色和字体在不同板块间保持了一致性，视觉上比较省力。</span>
+        </p>
+      </article>
+
+      <!-- 访问句 自然嵌入 -->
+      <div style="text-align: right; margin-top: 10px; font-size: 0.95rem; color: #6f654f; padding: 0 8px;">
+        —— 整理于一次下午的对照，<a href="https://sites-wellbet.com" style="border-bottom: none;">吉祥坊</a> 页面为本次记录的参照源。
+      </div>
+    </main>
+
+    <footer class="colophon">
+      个人笔记 · 非官方页面 · 内容仅供参考
+    </footer>
+  </div>
+</body>
+</html>
