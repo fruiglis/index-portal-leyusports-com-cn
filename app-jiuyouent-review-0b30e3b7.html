@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>九游娱乐 · 信息介绍页</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f6f3ef;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', sans-serif;
+            color: #2e2b27;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .page-card {
+            background: #fcfaf7;
+            border-radius: 28px;
+            padding: 2rem 1.8rem 2.8rem;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04), 0 1px 4px rgba(0, 0, 0, 0.03);
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-mini {
+            margin-bottom: 2.2rem;
+            border-left: 6px solid #b7a48b;
+            padding-left: 1.5rem;
+        }
+
+        .hero-mini h1 {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #3a322b;
+        }
+
+        .hero-mini .subhead {
+            font-size: 1.05rem;
+            color: #6b5e53;
+            margin-top: 0.4rem;
+            border-bottom: 1px solid #e7dfd7;
+            padding-bottom: 0.6rem;
+        }
+
+        .insight-box {
+            background: #efe9e1;
+            margin: 1.8rem 0;
+            padding: 1.4rem 1.8rem;
+            border-radius: 18px;
+            color: #3d352f;
+            font-style: normal;
+            border-left: 4px solid #b3947a;
+        }
+
+        .insight-box p {
+            margin: 0.3rem 0;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1.4rem;
+            margin: 2.2rem 0 1.8rem;
+        }
+
+        @media (min-width: 540px) {
+            .card-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .purpose-card {
+            background: white;
+            border: 1px solid #e3dbd1;
+            border-radius: 20px;
+            padding: 1.6rem 1.4rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+            transition: box-shadow 0.15s ease;
+        }
+
+        .purpose-card:hover {
+            box-shadow: 0 6px 18px rgba(0,0,0,0.05);
+        }
+
+        .purpose-card .icon-sym {
+            font-size: 2rem;
+            margin-bottom: 0.4rem;
+            display: inline-block;
+            background: #f3ede5;
+            padding: 0.2rem 0.6rem;
+            border-radius: 40px;
+        }
+
+        .purpose-card h3 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin: 0.5rem 0 0.3rem;
+            color: #3f3730;
+        }
+
+        .purpose-card p {
+            color: #5c5248;
+            font-size: 0.95rem;
+        }
+
+        .audience-list {
+            background: #f7f2ea;
+            padding: 1.4rem 1.8rem;
+            border-radius: 24px;
+            margin: 2rem 0 1.5rem;
+        }
+
+        .audience-list h2 {
+            font-size: 1.3rem;
+            font-weight: 450;
+            margin-bottom: 1rem;
+            color: #493f37;
+            border-bottom: 1px dashed #d6c9bc;
+            padding-bottom: 0.5rem;
+        }
+
+        .audience-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem 1rem;
+        }
+
+        .audience-tags span {
+            background: white;
+            padding: 0.3rem 1rem 0.35rem;
+            border-radius: 40px;
+            border: 1px solid #d9cdbe;
+            font-size: 0.95rem;
+            color: #4a4139;
+        }
+
+        .faq-mini {
+            margin: 2rem 0 1.2rem;
+        }
+
+        .faq-mini details {
+            background: #f4efe8;
+            padding: 0.8rem 1.4rem;
+            border-radius: 18px;
+            margin-bottom: 0.8rem;
+            border: 1px solid #e4d9ce;
+        }
+
+        .faq-mini details summary {
+            font-weight: 500;
+            cursor: pointer;
+            color: #3f352b;
+            list-style: '▸ ';
+        }
+
+        .faq-mini details[open] summary {
+            list-style: '▾ ';
+        }
+
+        .faq-mini details p {
+            margin-top: 0.5rem;
+            padding-left: 0.3rem;
+            color: #4d4239;
+        }
+
+        .natural-link-sentence {
+            background: #e7dfd5;
+            padding: 1.2rem 1.8rem;
+            border-radius: 30px;
+            margin: 2.2rem 0;
+            text-align: left;
+            font-size: 1rem;
+            border: 1px solid #d6c8b8;
+        }
+
+        .natural-link-sentence a {
+            color: #3a2c1f;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #b3977e;
+            font-weight: 500;
+        }
+
+        .natural-link-sentence a:hover {
+            color: #1f1410;
+            text-decoration-color: #7f6853;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.85rem;
+            color: #8a7d72;
+            border-top: 1px solid #e2d6ca;
+            padding-top: 1.8rem;
+            margin-top: 1rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #e7dcd1;
+            margin: 1.4rem 0;
+        }
+
+        .inline-emoji {
+            font-size: 1.1rem;
+        }
+    </style>
+</head>
+<body>
+<div class="page-card">
+    <div class="hero-mini">
+        <h1>九游娱乐 · 用途速览</h1>
+        <div class="subhead">一个整理过的信息卡片页 · 快速了解网站提供什么</div>
+    </div>
+
+    <div class="insight-box">
+        <p><span class="inline-emoji">📌</span> 如果你第一次来到这个网址，可能会想：“这到底是什么平台？” 简单来说，它是一个面向日常休闲与轻度娱乐需求的在线服务站点，聚合了多种可交互的内容模块。下方卡片整理了它的主要用途方向。</p>
+    </div>
+
+    <!-- 用途卡片区 -->
+    <div class="card-grid">
+        <div class="purpose-card">
+            <div class="icon-sym">🎮</div>
+            <h3>休闲内容聚合</h3>
+            <p>提供多类型线上娱乐项目，涵盖经典休闲玩法、轻量互动体验，适合碎片时间放松。</p>
+        </div>
+        <div class="purpose-card">
+            <div class="icon-sym">🧩</div>
+            <h3>场景化选择</h3>
+            <p>不同内容分区按使用场景组织，用户可以根据当下兴趣快速定位到对应模块，减少搜寻成本。</p>
+        </div>
+        <div class="purpose-card">
+            <div class="icon-sym">🔁</div>
+            <h3>持续更新库</h3>
+            <p>内容库保持更新节奏，定期加入新项目或调整现有分类，维持新鲜感与可用性。</p>
+        </div>
+        <div class="purpose-card">
+            <div class="icon-sym">📱</div>
+            <h3>多端适配访问</h3>
+            <p>页面结构对手机与桌面均做了基础适配，无需额外工具即可在主流浏览器上使用。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <div class="audience-list">
+        <h2>🙋 适合哪些人</h2>
+        <div class="audience-tags">
+            <span>休闲玩家</span>
+            <span>零碎时间使用者</span>
+            <span>轻度互动爱好者</span>
+            <span>喜欢尝试新内容的人</span>
+            <span>不愿安装额外应用的用户</span>
+        </div>
+        <p style="margin-top: 1rem; color: #50463d; font-size: 0.95rem;">以上标签仅作参考。任何对多样化线上娱乐形式抱有好奇心的人，都可能在这里找到自己感兴趣的部分。</p>
+    </div>
+
+    <!-- FAQ 摘要 —— 简短两问 -->
+    <div class="faq-mini">
+        <details>
+            <summary>这个网站和“下载”有什么关系？</summary>
+            <p>网站内部分内容可能需要加载资源或进行轻量配置，但不需要额外下载完整客户端。你可以在线直接使用大多数功能。如需特定下载说明，可参考站内指引。</p>
+        </details>
+        <details>
+            <summary>内容是否适合所有年龄段？</summary>
+            <p>平台内容以大众化休闲为主，但具体项目可能存在差异。建议用户根据自身判断选择合适模块。如有明确年龄提示，请遵守相应要求。</p>
+        </details>
+    </div>
+
+    <!-- 自然链接段落 -->
+    <div class="natural-link-sentence">
+        <p>如果你已经了解大致用途，并希望直接体验平台上的内容，可以前往 <a href="https://app-jiuyouent.com">九游娱乐下载</a> 页面查看最新分类与可用项目。该页面整理了当前主要模块，方便你快速开始。</p>
+    </div>
+
+    <div style="background: #f3ede5; border-radius: 20px; padding: 1.2rem 1.6rem; margin: 1.4rem 0;">
+        <p style="display: flex; gap: 0.5rem; align-items: baseline;"><span style="font-size: 1.4rem;">📋</span> 提示：本页为介绍用途的信息卡片页，不替代网站本身的导航或服务条款。所有描述基于公开信息整理，具体内容以 <a href="https://app-jiuyouent.com" style="color:#3d3229;">九游娱乐下载</a> 实际页面为准。</p>
+    </div>
+
+    <hr>
+    <div class="footer-note">
+        <span>信息卡片 · 用途说明页</span><br>
+        <span style="font-size: 0.8rem; opacity: 0.7;">仅供了解网站方向，不构成推荐或保证</span>
+    </div>
+</div>
+</body>
+</html>
