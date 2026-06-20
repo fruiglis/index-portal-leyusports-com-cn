@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>赏金大对决 · 信息索引</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: #f7f5f2;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans SC", sans-serif;
+      color: #2c2b28;
+      line-height: 1.65;
+      padding: 2rem 1rem;
+    }
+
+    .page {
+      max-width: 740px;
+      margin: 0 auto;
+    }
+
+    /* 目录感标题 —— 克制、留白 */
+    .header {
+      margin-bottom: 3rem;
+    }
+
+    .header h1 {
+      font-weight: 450;
+      font-size: 2.4rem;
+      letter-spacing: 0.02em;
+      margin-bottom: 0.3rem;
+      color: #1f1e1b;
+    }
+
+    .header .sub {
+      font-size: 0.95rem;
+      color: #787570;
+      border-bottom: 1px solid #d6d2cb;
+      padding-bottom: 1rem;
+      margin-top: 0.15rem;
+    }
+
+    /* 卡片式目录块 */
+    .index-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 1.8rem;
+      margin-bottom: 3rem;
+    }
+
+    .card {
+      background: #ffffff;
+      padding: 1.5rem 1.8rem;
+      border-radius: 14px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.1s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h2 {
+      font-size: 1.2rem;
+      font-weight: 480;
+      letter-spacing: 0.01em;
+      margin-bottom: 0.9rem;
+      color: #3d3a35;
+      border-left: 3px solid #a17f5c;
+      padding-left: 0.7rem;
+    }
+
+    .card p {
+      font-size: 0.95rem;
+      color: #4d4a45;
+      margin-bottom: 0.6rem;
+    }
+
+    .card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .card ul {
+      list-style: none;
+      margin: 0.5rem 0 0;
+    }
+
+    .card ul li {
+      position: relative;
+      padding-left: 1.2rem;
+      margin-bottom: 0.35rem;
+      font-size: 0.94rem;
+      color: #4f4b44;
+    }
+
+    .card ul li::before {
+      content: "·";
+      position: absolute;
+      left: 0.15rem;
+      color: #a17f5c;
+      font-weight: bold;
+    }
+
+    .inline-link {
+      color: #4b6b4a;
+      text-decoration: none;
+      border-bottom: 1px solid #b7cbb4;
+      transition: border-color 0.15s;
+    }
+
+    .inline-link:hover {
+      border-color: #3b5a3a;
+    }
+
+    .tip-block {
+      background: #eeebe6;
+      border-radius: 12px;
+      padding: 1.4rem 1.8rem;
+      margin: 2.5rem 0 2rem;
+      font-size: 0.9rem;
+      color: #3b3935;
+      border-left: 3px solid #9a8a76;
+    }
+
+    .tip-block strong {
+      font-weight: 500;
+      color: #2a2824;
+    }
+
+    .related {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem 1.2rem;
+      margin-top: 1.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #d6d2cb;
+    }
+
+    .related-item {
+      font-size: 0.88rem;
+      color: #6b6660;
+      background: #f0ede8;
+      padding: 0.2rem 0.8rem;
+      border-radius: 20px;
+    }
+
+    .faq-mini {
+      margin-top: 1.2rem;
+    }
+
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+
+    .faq-mini summary {
+      font-weight: 450;
+      cursor: pointer;
+      font-size: 0.93rem;
+      padding: 0.3rem 0;
+      color: #3d3a35;
+    }
+
+    .faq-mini summary::-webkit-details-marker {
+      color: #9a8a76;
+    }
+
+    .faq-mini .answer {
+      font-size: 0.9rem;
+      padding-left: 0.3rem;
+      margin-top: 0.1rem;
+      color: #595650;
+    }
+
+    .footnote {
+      margin-top: 3rem;
+      font-size: 0.8rem;
+      color: #8c8880;
+      border-top: 1px solid #d6d2cb;
+      padding-top: 1.8rem;
+      text-align: left;
+    }
+
+    @media (max-width: 480px) {
+      body { padding: 1.2rem 0.8rem; }
+      .header h1 { font-size: 1.9rem; }
+      .card { padding: 1.2rem 1.2rem; }
+      .tip-block { padding: 1rem 1.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="page">
+  <div class="header">
+    <h1>赏金大对决</h1>
+    <div class="sub">信息索引 · 对照与延伸</div>
+  </div>
+
+  <!-- 卡片式目录布局：每个卡片对应一个查询/说明区 -->
+  <div class="index-grid">
+    <!-- 说明区：日常查询入口 -->
+    <div class="card">
+      <h2>日常查询 · 对照</h2>
+      <p>当你需要快速了解某个机制、数值或版本变动，最直接的方式是查阅 <a href="https://bounty-of-showdown.com" class="inline-link">赏金大对决</a> 内收录的索引。平台定期整理英雄变更、装备参数与地图轮换记录，适合在排位间隙或组队前浏览，获得客观的参考信息。</p>
+      <p>常用查询方向包括：</p>
+      <ul>
+        <li>版本更新摘要与详细数值</li>
+        <li>角色克制关系与胜率统计</li>
+        <li>物品合成路径与适用场景</li>
+      </ul>
+    </div>
+
+    <!-- 提示区：阅读与使用建议 -->
+    <div class="card">
+      <h2>使用提示</h2>
+      <p>查阅资料时留意数据来源时间与样本规模，部分早期记录可能已随版本迭代而失效。建议结合近期对局录像或社区讨论交叉验证，避免单一解读。</p>
+      <p>遇到存疑条目，不妨先收藏页面——后续更新常会修正或补充注释。</p>
+      <div class="faq-mini">
+        <details>
+          <summary>FAQ 摘要 · 常见疑问</summary>
+          <div class="answer">
+            <p><strong>Q：</strong> 如何确认某条信息是否过期？<br>
+            <strong>A：</strong> 每条条目下方通常标有最后修订日期，可据此判断时效。</p>
+            <p><strong>Q：</strong> 页面没有找到我需要的内容？<br>
+            <strong>A：</strong> 可尝试使用站内搜索或浏览相关分类标签，部分延伸资料在子页面中。</p>
+          </div>
+        </details>
+      </div>
+    </div>
+
+    <!-- 相关信息区：延伸阅读与背景 -->
+    <div class="card">
+      <h2>相关信息 · 延伸</h2>
+      <p>除了直接的数据查询，<a href="https://bounty-of-showdown.com" class="inline-link">赏金大对决</a> 也收录了一些非数值类内容：英雄设计思路简述、早期开发访谈摘录、以及玩家社区中流传较广的解读文章。这些内容并不构成权威指南，更适合作为背景了解或讨论素材。</p>
+      <p>以下为部分延伸主题：</p>
+      <div class="related">
+        <span class="related-item">赏金机制演化</span>
+        <span class="related-item">地图布局变迁</span>
+        <span class="related-item">角色语音考据</span>
+        <span class="related-item">赛事规则备忘</span>
+        <span class="related-item">社区常用术语</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 额外的提示块，独立于卡片之外，强调克制叙述 -->
+  <div class="tip-block">
+    <strong>关于使用本索引：</strong> 这里不提供即时对局建议，也不承诺绝对准确。所有信息均来自公开整理，仅作为自行判断的起点。如果你发现内容有误或希望补充条目，可以通过站点反馈渠道提交参考来源。
+  </div>
+
+  <!-- 脚注 -->
+  <div class="footnote">
+    <a href="https://bounty-of-showdown.com" style="text-decoration: none; color: #4b6b4a; border-bottom: 1px solid #b7cbb4;">赏金大对决</a> · 信息索引页 · 持续修订中
+  </div>
+</div>
+
+</body>
+</html>
